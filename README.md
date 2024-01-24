@@ -1,2 +1,2 @@
-# THE AOC GAME
+# THE AOC
 # AOC!
