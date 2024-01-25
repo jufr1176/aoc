@@ -12,6 +12,8 @@ class Game {
 
         void clearConsole();
 
+        void mainMenu();
+
         void introScreen();
     
 };

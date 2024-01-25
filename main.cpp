@@ -8,7 +8,7 @@ int main(int argc, char **argv[]) {
 
     Game game;
 
-    game.introScreen();
+    game.mainMenu();
 
     return 0;
 }
