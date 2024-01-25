@@ -1,9 +1,14 @@
 #include <iostream>
+#include "headers/game.hpp"
+#include "headers/player.hpp"
+
 using namespace std;
 
-int main() {
+int main(int argc, char **argv[]) {
 
-    cout << "AOC" << endl;
+    Game game;
+
+    game.introScreen();
 
     return 0;
 }

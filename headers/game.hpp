@@ -7,5 +7,11 @@ class Game {
         string version;
 
     public:
+
+        //Game Functions
+
+        void clearConsole();
+
+        void introScreen();
     
 };
