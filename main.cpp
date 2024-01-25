@@ -1,6 +1,6 @@
 #include <iostream>
-#include "headers/game.hpp"
-#include "headers/player.hpp"
+#include "code_1/game.hpp"
+#include "code_1/player.hpp"
 
 using namespace std;
 
