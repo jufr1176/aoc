@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
 
-    //v0.0.0
+    cout << "AOC" << endl;
 
     return 0;
 }
