@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 -Wall -g -rdynamic CMakeFiles/game.dir/main.cpp.o CMakeFiles/game.dir/code_1/game.cpp.o CMakeFiles/game.dir/code_1/player.cpp.o -o game 
