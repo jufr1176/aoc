@@ -6,7 +6,7 @@
 void Game::loadCharacters() {
 
 
-    ifstream is("characters.txt");
+    ifstream is("../txtFiles/characters.txt");
 
     if (!is.is_open()) {
         cout << "Failed to open characters.txt";
