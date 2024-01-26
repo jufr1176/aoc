@@ -1,6 +1,55 @@
 #include "game.hpp"
 #include "colors.hpp"
 
+//Pre Game
+
+void Game::loadCharacters() {
+
+
+    ifstream is("characters.txt");
+
+    if (!is.is_open()) {
+        cout << "Failed to open characters.txt";
+        running_ = false;
+    }
+
+    string line;
+
+    while (getline(is, line)) {
+
+        string name;
+        string strength;
+        string charisma;
+        string agility;
+        string luck;
+        string perception;
+
+        stringstream ss(line);
+
+        Character newCharacter;
+
+        getline(ss, name, ',');
+        getline(ss, strength, ',');
+        getline(ss, charisma, ',');
+        getline(ss, agility, ',');
+        getline(ss, luck, ',');
+        getline(ss, perception, ',');
+
+        newCharacter.setName(name);
+        newCharacter.setStrength(stoi(strength));
+        newCharacter.setCharsima(stoi(charisma));
+        newCharacter.setAgility(stoi(agility));
+        newCharacter.setLuck(stoi(luck));
+        newCharacter.setPerception(stoi(perception));
+
+        characters.push_back(newCharacter);
+    }
+
+    is.close();
+
+    
+}
+
 //Game functions
 
 void Game::clearConsole() {
@@ -48,7 +97,17 @@ void Game::introScreen() {
 
     cout << "Press enter to continue..." << endl;
 
-    cin.get();
+    //cin.get();
 
-    clearConsole();
+    //clearConsole();
+
+    //Display Characters
+
+    for (int i = 0; i < characters.size(); i++) {
+        cout << characters[i].getName() << endl;
+    }
+
+    cout << "Choose your character" << endl << endl;
+
+    cin.get();
 }

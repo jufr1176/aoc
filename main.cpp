@@ -8,6 +8,8 @@ int main(int argc, char **argv[]) {
 
     Game game;
 
+    game.loadCharacters();
+
     game.mainMenu();
 
     return 0;

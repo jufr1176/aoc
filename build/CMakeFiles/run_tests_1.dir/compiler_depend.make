@@ -179,6 +179,19 @@ CMakeFiles/run_tests_1.dir/code_1/game.cpp.o: ../code_1/game.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  ../code_1/character.hpp \
+  /usr/include/c++/11/fstream \
+  /usr/include/c++/11/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc \
   ../code_1/colors.hpp
 
 CMakeFiles/run_tests_1.dir/code_1/player.cpp.o: ../code_1/player.cpp \
@@ -365,6 +378,22 @@ CMakeFiles/run_tests_1.dir/code_1/player.cpp.o: ../code_1/player.cpp \
 
 ../code_1/colors.hpp:
 
+/usr/include/c++/11/sstream:
+
+/usr/include/c++/11/bits/vector.tcc:
+
+/usr/include/c++/11/bits/stl_bvector.h:
+
+/usr/include/c++/11/bits/stl_uninitialized.h:
+
+/usr/include/c++/11/vector:
+
+/usr/include/c++/11/bits/fstream.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
+
 /usr/include/c++/11/bits/istream.tcc:
 
 /usr/include/c++/11/istream:
@@ -390,6 +419,8 @@ CMakeFiles/run_tests_1.dir/code_1/player.cpp.o: ../code_1/player.cpp \
 /usr/include/c++/11/stdexcept:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
+
+/usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/c++/11/system_error:
 
@@ -537,6 +568,8 @@ CMakeFiles/run_tests_1.dir/code_1/player.cpp.o: ../code_1/player.cpp \
 
 /usr/include/c++/11/iosfwd:
 
+/usr/include/c++/11/bits/codecvt.h:
+
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
@@ -655,6 +688,8 @@ CMakeFiles/run_tests_1.dir/code_1/player.cpp.o: ../code_1/player.cpp \
 
 /usr/include/locale.h:
 
+../code_1/character.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
@@ -691,6 +726,8 @@ CMakeFiles/run_tests_1.dir/code_1/player.cpp.o: ../code_1/player.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
+/usr/include/c++/11/bits/sstream.tcc:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
@@ -714,6 +751,8 @@ CMakeFiles/run_tests_1.dir/code_1/player.cpp.o: ../code_1/player.cpp \
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/c++/11/bits/basic_string.h:
+
+/usr/include/c++/11/fstream:
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 

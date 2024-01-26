@@ -1,4 +1,8 @@
 #include <iostream>
+#include "character.hpp"
+#include <fstream>
+#include <vector>
+#include <sstream>
 using namespace std;
 
 class Game {
@@ -6,7 +10,13 @@ class Game {
         bool running_;
         string version;
 
+        vector<Character> characters;
+
     public:
+
+        //Pre Game
+
+        void loadCharacters();
 
         //Game Functions
 
