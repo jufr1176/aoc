@@ -16,8 +16,16 @@ void Character::setCharsima(int charisma) {
     charisma_ = charisma;
 }
 
+void Character::setIntelligence(int intelligence) {
+    intelligence_ = intelligence;
+}
+
 void Character::setAgility(int agility) {
     agility_ = agility;
+}
+
+void Character::setEndurance(int endurance) {
+    endurance_ = endurance;
 }
 
 void Character::setLuck(int luck) {
@@ -45,6 +53,15 @@ int Character::getStrength() {
 int Character::getCharsima() {
     return charisma_;
 }
+
+int Character::getIntelligence() {
+    return intelligence_;
+}
+
+int Character::getEndurance() {
+    return endurance_;
+}
+
 
 int Character::getAgility() {
     return agility_;

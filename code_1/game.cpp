@@ -9,9 +9,12 @@ void Game::printStats(Character character) {
 
     cout << "Character: " << character.getName() << endl;
     cout << "Strength: " << character.getStrength() << endl;
+    cout << "Endurance: " << character.getEndurance() << endl;
     cout << "Charisma: " << character.getCharsima() << endl;
+    cout << "Intelligence: " << character.getIntelligence() << endl;
     cout << "Agility: " << character.getAgility() << endl;
     cout << "Luck: " << character.getLuck() << endl;
+    cout << "Perception: " << character.getPerception() << endl;
     cout << "Racism: " << "NULL" << endl;
     cout << "Horniness: " << "NULL" << endl;
 
@@ -34,7 +37,9 @@ void Game::loadCharacters() {
 
         string name;
         string strength;
+        string endurance;
         string charisma;
+        string intelligence;
         string agility;
         string luck;
         string perception;
@@ -45,15 +50,19 @@ void Game::loadCharacters() {
 
         getline(ss, name, ',');
         getline(ss, strength, ',');
+        getline(ss, endurance, ',');
         getline(ss, charisma, ',');
+        getline(ss, intelligence, ',');
         getline(ss, agility, ',');
         getline(ss, luck, ',');
         getline(ss, perception, ',');
 
         newCharacter.setName(name);
         newCharacter.setStrength(stoi(strength));
+        newCharacter.setEndurance(stoi(endurance));
         newCharacter.setCharsima(stoi(charisma));
         newCharacter.setAgility(stoi(agility));
+        newCharacter.setIntelligence(stoi(intelligence));
         newCharacter.setLuck(stoi(luck));
         newCharacter.setPerception(stoi(perception));
 

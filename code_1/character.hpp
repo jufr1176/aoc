@@ -27,7 +27,9 @@ class Character {
         void setName(string name);
         void setHp(int hp);
         void setStrength(int strength);
+        void setEndurance(int endurance);
         void setCharsima(int charisma);
+        void setIntelligence(int intelligence);
         void setAgility(int agility);
         void setLuck(int luck);
         void setPerception(int perception);
@@ -36,7 +38,9 @@ class Character {
         string getName();
         int getHp();
         int getStrength();
+        int getEndurance();
         int getCharsima();
+        int getIntelligence();
         int getAgility();
         int getLuck();
         int getPerception();
