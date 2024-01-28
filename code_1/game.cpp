@@ -3,6 +3,21 @@
 
 //Pre Game
 
+void Game::printStats(Character character) {
+
+    cout << endl << YELLOW << "STATS" << RESET << endl << endl;
+
+    cout << "Character: " << character.getName() << endl;
+    cout << "Strength: " << character.getStrength() << endl;
+    cout << "Charisma: " << character.getCharsima() << endl;
+    cout << "Agility: " << character.getAgility() << endl;
+    cout << "Luck: " << character.getLuck() << endl;
+    cout << "Racism: " << "NULL" << endl;
+    cout << "Horniness: " << "NULL" << endl;
+
+}
+
+
 void Game::loadCharacters() {
 
 
@@ -114,25 +129,35 @@ void Game::introScreen() {
     cout << RED << "Then they came for me, and there was no one to help..." << RESET << endl;
     pauseConsole();
 
+    cout << "The year is 2050, danke milk has run dry from the world's reserves and the world has crumbled. It is nothing but a shell of it's former self. Those who survived the shortage now live in what remains." << endl;
+    cout << "AOCIA collapsed in the year 2024, since then many states have formed in it's place, however none have matched it's former glory." << endl;
+    cout << "You reside in the settlement of Neu Aocia" << endl;
+    pauseConsole();
+    clearConsole();
+
+    characterSelection();
+
 }
 
 void Game::characterSelection() {
 
-    cout << "AOC: THE GAME" << endl;
+    cout << "Who are you?" << endl;
 
-    cout << "Press enter to continue..." << endl;
-
-    //cin.get();
-
-    //clearConsole();
-
-    //Display Characters
 
     for (int i = 0; i < characters.size(); i++) {
-        cout << characters[i].getName() << endl;
+        cout << i+1 << ") " << characters[i].getName() << endl;
     }
 
-    cout << "Choose your character" << endl << endl;
+    cout << "Choose your character (Number): " << endl << endl;
 
-    cin.get();
+    int choice;
+    cin >> choice;
+
+    //Set Character
+    player.setCharacter(characters[choice-1]);
+
+    cout << "You have chosen, " << player.getCharacter().getName() << "." << endl;
+    printStats(player.getCharacter());
+
+    pauseConsole();
 }

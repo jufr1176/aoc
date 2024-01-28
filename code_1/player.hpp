@@ -1,16 +1,23 @@
 #include <iostream>
+#include "character.hpp"
 using namespace std;
+
+#ifndef PLAYER_H
+#define PLAYER_H
 
 class Player {
     private:
-        string name_;
+
+        Character character_;
 
     public:
         //Getters
 
-        string getName();
+        Character getCharacter();
 
         //Setters
 
-        void setName(string name);
+        void setCharacter(Character name);
 };
+
+#endif

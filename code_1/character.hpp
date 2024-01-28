@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+#ifndef CHARACTER_H
+#define CHARACTER_H
+
 class Character {
 
     private:
@@ -39,3 +42,5 @@ class Character {
         int getPerception();
 
 };
+
+#endif

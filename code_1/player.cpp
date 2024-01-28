@@ -2,12 +2,12 @@
 
 //Getters
 
-string Player::getName() {
-    return name_;
+Character Player::getCharacter() {
+    return character_;
 }
 
 //Setters
 
-void Player::setName(string name) {
-    name_ = name;
+void Player::setCharacter(Character name) {
+    character_ = name;
 }
