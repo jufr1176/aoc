@@ -6,7 +6,7 @@
 void Game::loadCharacters() {
 
 
-    ifstream is("../txtFiles/characters.txt");
+    ifstream is("txtFiles/characters.txt");
 
     if (!is.is_open()) {
         cout << "Failed to open characters.txt";
@@ -62,6 +62,16 @@ void Game::clearConsole() {
     #endif
 }
 
+void Game::pauseConsole() {
+
+    cout << RESET << "Press enter to continue..." << endl;
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    cin.sync();
+    cin.get();
+
+}
+
 void Game::mainMenu() {
 
     bool menu = true;
@@ -92,6 +102,21 @@ void Game::mainMenu() {
 }
 
 void Game::introScreen() {
+
+    clearConsole();
+
+    cout << RED << "First they came for Danke, and I said nothing." << endl;
+    pauseConsole();
+
+    cout << RED << "Then they came for Serv, and I said nothing." << endl;
+    pauseConsole();
+
+    cout << RED << "Then they came for me, and there was no one to help..." << RESET << endl;
+    pauseConsole();
+
+}
+
+void Game::characterSelection() {
 
     cout << "AOC: THE GAME" << endl;
 

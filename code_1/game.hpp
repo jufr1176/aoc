@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <limits>
 using namespace std;
 
 class Game {
@@ -20,10 +21,16 @@ class Game {
 
         //Game Functions
 
-        void clearConsole();
-
         void mainMenu();
 
         void introScreen();
+
+        void characterSelection();
+
+        //Window Functions
+
+        void clearConsole();
+
+        void pauseConsole();
     
 };
