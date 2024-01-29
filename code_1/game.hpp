@@ -35,6 +35,8 @@ class Game {
 
         void characterSelection();
 
+        void menuLoop();
+
         //Window Functions
 
         void clearConsole();

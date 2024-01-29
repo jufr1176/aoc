@@ -125,6 +125,17 @@ void Game::mainMenu() {
     }
 }
 
+void Game::menuLoop() {
+    clearConsole();
+
+    cout << "LOCATION: " << BLUE << "(TBD)" << RESET << endl << endl;
+
+    cout << "1) Where am I?" << endl;
+    cout << "2) Display Stats" << endl;
+    cout << "3) Investigate Area" << endl;
+    
+}
+
 void Game::introScreen() {
 
     clearConsole();
