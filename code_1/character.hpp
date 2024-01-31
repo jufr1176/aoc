@@ -12,7 +12,7 @@ class Character {
 
         //Stats
 
-        int hp_;
+        int hp_ = 50;
         int strength_;
         int endurance_;
         int charisma_;

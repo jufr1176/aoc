@@ -2,6 +2,7 @@
 #include "character.hpp"
 #include <fstream>
 #include "player.hpp"
+#include "locations.hpp"
 #include <vector>
 #include <sstream>
 #include <limits>
@@ -12,10 +13,11 @@ using namespace std;
 
 class Game {
     private:
-        bool running_;
+        bool running_ = true;
         string version;
 
         vector<Character> characters;
+        vector<Location> locations_;
 
         Player player;
 
@@ -24,6 +26,8 @@ class Game {
         //Pre Game
 
         void loadCharacters();
+
+        void loadLocations();
 
         void printStats(Character character);
 
@@ -42,6 +46,10 @@ class Game {
         void clearConsole();
 
         void pauseConsole();
+
+        //Cutscenes
+
+        void attackOnAocia();
     
 };
 

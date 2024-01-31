@@ -74,6 +74,15 @@ void Game::loadCharacters() {
     
 }
 
+void Game::loadLocations() {
+
+    Location Aocia;
+    Aocia.desc = "A decimated village. Rubble lies everywhere, in some places people. Your home still stands on the outskirts.";
+    Aocia.name = "Aocia";
+    
+    locations_.push_back(Aocia);
+}
+
 //Game functions
 
 void Game::clearConsole() {
@@ -126,13 +135,68 @@ void Game::mainMenu() {
 }
 
 void Game::menuLoop() {
-    clearConsole();
 
-    cout << "LOCATION: " << BLUE << "(TBD)" << RESET << endl << endl;
+    while (running_) {
+    
+        clearConsole();
 
-    cout << "1) Where am I?" << endl;
-    cout << "2) Display Stats" << endl;
-    cout << "3) Investigate Area" << endl;
+        cout << "LOCATION: " << BLUE << player.getLocation().name << RESET << endl;
+        cout << "HP: " << player.getCharacter().getHp() << endl << endl;
+
+        cout << "1) Go somewhere" << endl;
+        cout << "2) Talk to someone" << endl;
+        cout << "3) Investigate Area" << endl;
+        cout << "4) Where am I?" << endl;
+        cout << "5) Leave area" << endl;
+
+        int choice;
+        cin >> choice;
+
+        switch(choice) {
+
+
+            case 5: {
+                clearConsole();
+
+                cout << "Where do you want to go?" << endl << endl;
+
+                for (int i = 0; i < locations_.size(); i++) {
+                    cout << i + 1 << ") " << locations_[i].name << endl;
+                }
+
+                int choice;
+                cin >> choice;
+
+                if (choice > locations_.size()) {
+                    while (choice > locations_.size()) {
+                        cout << "Invalid selection, try again" << endl;
+                        cin >> choice;
+                    }
+                }
+
+                player.setLocation(locations_[choice - 1]);
+
+                break;
+            }
+
+            case 4: {
+                clearConsole();
+                cout << "AREA: " << player.getLocation().name << endl << endl;
+
+                cout << player.getLocation().desc << endl;
+                pauseConsole();
+
+                break;
+            }
+
+            default: {
+                cout << "Invalid selection, try again" << endl;
+                pauseConsole();
+            }
+
+        } //Switch Statement
+
+    } //While LOop
     
 }
 
@@ -157,6 +221,8 @@ void Game::introScreen() {
 
     characterSelection();
 
+    attackOnAocia();
+
 }
 
 void Game::characterSelection() {
@@ -180,4 +246,61 @@ void Game::characterSelection() {
     printStats(player.getCharacter());
 
     pauseConsole();
+}
+
+void Game::attackOnAocia() {
+
+    clearConsole();
+
+    cout << "It was a peaceful day in Aocia, birds chirped in the distance, the smell of hope filled the air. Sure, the danke milk was gone, but today it didn't matter to you." << endl;
+    cout << "You stand in your home in Aocia Village awaiting an exciting day. You are going to go and see Charlie today after you run some errands." << endl;
+
+    pauseConsole();
+    cout << endl;
+
+    cout << RED << "..." << RESET << endl;
+    pauseConsole();
+    cout << RED << "..." << RESET << endl;
+    pauseConsole();
+
+    cout << RED << "The sound of horses gallop in the distance" << RESET << endl;
+    pauseConsole();
+    cout << endl;
+
+    cout << "The village bell sounds! What is happening?" << endl;
+    cout << "In a panic, you run outside, the sounds of men shouting echo in the distance..." << endl;
+    pauseConsole();
+    cout << endl;
+
+    cout << "It can only mean one thing. The Romanians..." << endl;
+    pauseConsole();
+    cout << endl;
+
+    cout << "You panick, run into your house, and hide in ur closet..." << endl;
+    cout << "As you curl into a ball in the darkness, you hear the sounds of war just a feet away..." << endl;
+    pauseConsole();
+    cout << endl;
+
+    cout << RED << "..." << endl;
+    pauseConsole();
+    cout << RED << "..." << endl;
+    pauseConsole();
+    cout << RED << "..." << endl;
+    pauseConsole();
+
+    cout << endl;
+
+    cout << RED << "AHHHHHHHHHHH" << endl;
+    cout << RED << "Help!!!!" << endl;
+    cout << RED << "Ove- The-!!!" << endl;
+    cout << RED << "Trăiască Estul!" << endl;
+
+    pauseConsole();
+    cout << endl;
+    clearConsole();
+
+    cout << RESET << "Many hours pass in that room, and the noises subside with time" << endl;
+    cout << "Finally, hours later, you leave from your home, only to be met with destruction..." << endl;
+
+    player.setLocation(locations_[0]);
 }

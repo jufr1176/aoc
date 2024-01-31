@@ -9,8 +9,11 @@ int main() {
     Game game;
 
     game.loadCharacters();
+    game.loadLocations();
 
     game.mainMenu();
+
+    game.menuLoop();
 
     return 0;
 }
