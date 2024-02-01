@@ -104,7 +104,7 @@ void Game::loadLocations() {
         {1,1,1,1,1,1,1,1,1,1},
     };
 
-    Aocia.xStart = 9;
+    Aocia.xStart = 8;
     Aocia.yStart = 5;
 
     copyMatrix(aociaMap, Aocia.map);
@@ -238,7 +238,7 @@ void Game::drawLocation() {
             if (player.getLocation().map[i][j] == 1) {
                 cout << " * ";
             }
-            else if (player.getX() == i && player.getY() == j) {
+            else if (player.getX() == j && player.getY() == i) {
                 cout << " x ";
             }
             else {
@@ -269,8 +269,32 @@ void Game::menuLoop() {
 
         drawLocation();
 
-        int choice;
+        cout << "(a, w, s, d): ";
+
+        char choice;
         cin >> choice;
+
+        switch (choice) {
+            case 'a': {
+                player.setX(player.getX() - 1);
+                break;
+            }
+            case 'w': {
+                player.setY(player.getY() - 1);
+                break;
+            }
+            case 's': {
+                player.setY(player.getY() + 1);
+                break;
+            }
+            case 'd': {
+                player.setX(player.getX() + 1);
+                break;
+            }
+            default: {
+                //Pass
+            }
+        }
 
         
 
