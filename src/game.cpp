@@ -74,11 +74,40 @@ void Game::loadCharacters() {
     
 }
 
+void Game::copyMatrix(int giverArray[][10], int recieverArray[][10]) {
+
+    for (int i = 0; i < 10; i++) {
+
+        for (int j = 0; j < 10; j++) {
+            recieverArray[i][j] = giverArray[i][j];
+        }
+
+    }
+}
+
 void Game::loadLocations() {
 
     Location Aocia;
     Aocia.desc = "A decimated village. Rubble lies everywhere, in some places people. Your home still stands on the outskirts.";
     Aocia.name = "Aocia";
+    
+    int aociaMap[10][10] = {
+        {1,1,1,1,1,1,1,1,1,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,0},
+        {1,0,0,0,0,0,0,0,0,0},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,1,1,1,1,1,1,1,1,1},
+    };
+
+    Aocia.xStart = 9;
+    Aocia.yStart = 5;
+
+    copyMatrix(aociaMap, Aocia.map);
     
     locations_.push_back(Aocia);
 }
@@ -134,6 +163,95 @@ void Game::mainMenu() {
     }
 }
 
+// void Game::menuLoop() {
+
+//     while (running_) {
+    
+//         clearConsole();
+
+//         cout << "LOCATION: " << BLUE << player.getLocation().name << RESET << endl;
+//         cout << "HP: " << player.getCharacter().getHp() << endl << endl;
+
+//         cout << "1) Go somewhere" << endl;
+//         cout << "2) Talk to someone" << endl;
+//         cout << "3) Investigate Area" << endl;
+//         cout << "4) Where am I?" << endl;
+//         cout << "5) Leave area" << endl;
+
+//         int choice;
+//         cin >> choice;
+
+//         switch(choice) {
+
+
+//             case 5: {
+//                 clearConsole();
+
+//                 cout << "Where do you want to go?" << endl << endl;
+
+//                 for (int i = 0; i < locations_.size(); i++) {
+//                     cout << i + 1 << ") " << locations_[i].name << endl;
+//                 }
+
+//                 int choice;
+//                 cin >> choice;
+
+//                 if (choice > locations_.size()) {
+//                     while (choice > locations_.size()) {
+//                         cout << "Invalid selection, try again" << endl;
+//                         cin >> choice;
+//                     }
+//                 }
+
+//                 player.setLocation(locations_[choice - 1]);
+
+//                 break;
+//             }
+
+//             case 4: {
+//                 clearConsole();
+//                 cout << "AREA: " << player.getLocation().name << endl << endl;
+
+//                 cout << player.getLocation().desc << endl;
+//                 pauseConsole();
+
+//                 break;
+//             }
+
+//             default: {
+//                 cout << "Invalid selection, try again" << endl;
+//                 pauseConsole();
+//             }
+
+//         } //Switch Statement
+
+//     } //While LOop
+    
+// }
+
+void Game::drawLocation() {
+
+    for (int i = 0; i < 10; i++) {
+
+        for (int j = 0; j < 10; j++) {
+
+            if (player.getLocation().map[i][j] == 1) {
+                cout << " * ";
+            }
+            else if (player.getX() == i && player.getY() == j) {
+                cout << " x ";
+            }
+            else {
+                cout << "   ";
+            }
+
+        }
+
+        cout << endl;
+
+    }
+}
+
 void Game::menuLoop() {
 
     while (running_) {
@@ -143,58 +261,18 @@ void Game::menuLoop() {
         cout << "LOCATION: " << BLUE << player.getLocation().name << RESET << endl;
         cout << "HP: " << player.getCharacter().getHp() << endl << endl;
 
-        cout << "1) Go somewhere" << endl;
-        cout << "2) Talk to someone" << endl;
-        cout << "3) Investigate Area" << endl;
-        cout << "4) Where am I?" << endl;
-        cout << "5) Leave area" << endl;
+        // cout << "1) Go somewhere" << endl;
+        // cout << "2) Talk to someone" << endl;
+        // cout << "3) Investigate Area" << endl;
+        // cout << "4) Where am I?" << endl;
+        // cout << "5) Leave area" << endl;
+
+        drawLocation();
 
         int choice;
         cin >> choice;
 
-        switch(choice) {
-
-
-            case 5: {
-                clearConsole();
-
-                cout << "Where do you want to go?" << endl << endl;
-
-                for (int i = 0; i < locations_.size(); i++) {
-                    cout << i + 1 << ") " << locations_[i].name << endl;
-                }
-
-                int choice;
-                cin >> choice;
-
-                if (choice > locations_.size()) {
-                    while (choice > locations_.size()) {
-                        cout << "Invalid selection, try again" << endl;
-                        cin >> choice;
-                    }
-                }
-
-                player.setLocation(locations_[choice - 1]);
-
-                break;
-            }
-
-            case 4: {
-                clearConsole();
-                cout << "AREA: " << player.getLocation().name << endl << endl;
-
-                cout << player.getLocation().desc << endl;
-                pauseConsole();
-
-                break;
-            }
-
-            default: {
-                cout << "Invalid selection, try again" << endl;
-                pauseConsole();
-            }
-
-        } //Switch Statement
+        
 
     } //While LOop
     
@@ -303,4 +381,6 @@ void Game::attackOnAocia() {
     cout << "Finally, hours later, you leave from your home, only to be met with destruction..." << endl;
 
     player.setLocation(locations_[0]);
+    player.setX(player.getLocation().xStart);
+    player.setY(player.getLocation().yStart);
 }

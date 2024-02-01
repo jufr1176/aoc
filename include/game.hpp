@@ -41,11 +41,15 @@ class Game {
 
         void menuLoop();
 
+        void drawLocation();
+
         //Window Functions
 
         void clearConsole();
 
         void pauseConsole();
+
+        void copyMatrix(int giverArray[][10], int recieverArray[][10]);
 
         //Cutscenes
 

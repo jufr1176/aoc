@@ -17,6 +17,11 @@ struct Location {
     string desc;
 
     LocationArea locationAreas[10];
+
+    int map[10][10];
+
+    int xStart;
+    int yStart;
     
 };
 
