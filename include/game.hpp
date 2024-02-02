@@ -43,6 +43,8 @@ class Game {
 
         void drawLocation();
 
+        void movePlayer(int x, int y);
+
         //Window Functions
 
         void clearConsole();

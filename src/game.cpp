@@ -88,7 +88,7 @@ void Game::copyMatrix(int giverArray[][10], int recieverArray[][10]) {
 void Game::loadLocations() {
 
     Location Aocia;
-    Aocia.desc = "A decimated village. Rubble lies everywhere, in some places people. Your home still stands on the outskirts.";
+    Aocia.desc = "A decimated village. Rubble lays everywhere, in some places people. Your home still stands on the outskirts.";
     Aocia.name = "Aocia";
     
     int aociaMap[10][10] = {
@@ -96,8 +96,8 @@ void Game::loadLocations() {
         {1,0,0,0,0,0,0,0,0,1},
         {1,0,0,0,0,0,0,0,0,1},
         {1,0,0,0,0,0,0,0,0,1},
-        {1,0,0,0,0,0,0,0,0,0},
-        {1,0,0,0,0,0,0,0,0,0},
+        {1,0,0,0,0,0,0,0,0,3},
+        {1,0,0,0,0,0,0,0,0,3},
         {1,0,0,0,0,0,0,0,0,1},
         {1,0,0,0,0,0,0,0,0,1},
         {1,0,0,0,0,0,0,0,0,1},
@@ -110,6 +110,55 @@ void Game::loadLocations() {
     copyMatrix(aociaMap, Aocia.map);
     
     locations_.push_back(Aocia);
+
+
+    Location Clock_Town;
+    Clock_Town.desc = "One of the region's largest villages. A center for commerce and arts.";
+    Clock_Town.name = "Clock Town";
+    
+    int Clock_Town_Map[10][10] = {
+        {1,1,1,1,1,1,1,1,1,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {3,0,0,0,0,0,0,0,0,1},
+        {3,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,1,0,1},
+        {1,0,0,0,0,0,0,1,0,1},
+        {1,1,1,1,1,1,1,1,1,1},
+    };
+
+    Clock_Town.xStart = 1;
+    Clock_Town.yStart = 5;
+
+    copyMatrix(Clock_Town_Map, Clock_Town.map);
+    
+    locations_.push_back(Clock_Town);
+
+    Location Ruins_of_Aocia;
+    Ruins_of_Aocia.desc = "The ruins of Old Aocia, once compared to the Roman Empire of Antiquity, it now lays in ruin.";
+    Ruins_of_Aocia.name = "Ruins of Old Aocia";
+    
+    int Ruins_of_Aocia_Map[10][10] = {
+        {1,1,1,1,1,1,1,1,1,1},
+        {1,0,0,0,0,0,0,1,0,1},
+        {1,0,0,1,1,1,0,1,0,1},
+        {1,0,0,0,0,0,0,1,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,1,1,0,0,0,0,1},
+        {1,0,0,1,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,1,0,1},
+        {1,1,1,1,3,3,1,1,1,1},
+    };
+
+    Ruins_of_Aocia.xStart = 6;
+    Ruins_of_Aocia.yStart = 9;
+
+    copyMatrix(Ruins_of_Aocia_Map, Ruins_of_Aocia.map);
+    
+    locations_.push_back(Ruins_of_Aocia);
 }
 
 //Game functions
@@ -236,10 +285,10 @@ void Game::drawLocation() {
         for (int j = 0; j < 10; j++) {
 
             if (player.getLocation().map[i][j] == 1) {
-                cout << " * ";
+                cout << " # ";
             }
             else if (player.getX() == j && player.getY() == i) {
-                cout << " x ";
+                cout << " o ";
             }
             else {
                 cout << "   ";
@@ -252,6 +301,46 @@ void Game::drawLocation() {
     }
 }
 
+//MANAGE ALL PLAYER COLLISIONS WITH THINGS ON THE MAP AND MOVE PLAYER
+void Game::movePlayer(int x, int y) {
+
+    //Check if the player will hit a wall, if yes, dont move them // COLLISION
+    if ( player.getLocation().map[player.getY() + y][player.getX() + x] == 1) {
+        //Pass
+    }
+    //CHECK IF PLAYER LEAVES AREA AND LET THEM SELECT NEW AREA
+    else if (player.getLocation().map[player.getY() + y][player.getX() + x] == 3) {
+        clearConsole();
+
+        cout << "Where do you want to go?" << endl << endl;
+
+        for (int i = 0; i < locations_.size(); i++) {
+            cout << i + 1 << ") " << locations_[i].name << endl;
+        }
+
+        int choice;
+        cin >> choice;
+
+        if (choice > locations_.size()) {
+            while (choice > locations_.size()) {
+                cout << "Invalid selection, try again" << endl;
+                cin >> choice;
+            }
+        }
+
+        player.setLocation(locations_[choice - 1]);
+        player.setX(player.getLocation().xStart);
+        player.setY(player.getLocation().yStart);
+
+    }
+    //MOVE PLAYER
+    else {
+        player.setX(player.getX() + x);
+        player.setY(player.getY() + y);
+    }
+
+}
+
 void Game::menuLoop() {
 
     while (running_) {
@@ -260,12 +349,6 @@ void Game::menuLoop() {
 
         cout << "LOCATION: " << BLUE << player.getLocation().name << RESET << endl;
         cout << "HP: " << player.getCharacter().getHp() << endl << endl;
-
-        // cout << "1) Go somewhere" << endl;
-        // cout << "2) Talk to someone" << endl;
-        // cout << "3) Investigate Area" << endl;
-        // cout << "4) Where am I?" << endl;
-        // cout << "5) Leave area" << endl;
 
         drawLocation();
 
@@ -276,19 +359,19 @@ void Game::menuLoop() {
 
         switch (choice) {
             case 'a': {
-                player.setX(player.getX() - 1);
+                movePlayer(-1, 0);
                 break;
             }
             case 'w': {
-                player.setY(player.getY() - 1);
+                movePlayer(0, -1);
                 break;
             }
             case 's': {
-                player.setY(player.getY() + 1);
+                movePlayer(0, 1);
                 break;
             }
             case 'd': {
-                player.setX(player.getX() + 1);
+                movePlayer(1, 0);
                 break;
             }
             default: {
