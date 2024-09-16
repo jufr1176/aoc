@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -rdynamic CMakeFiles/aoc.dir/src/character.o CMakeFiles/aoc.dir/src/game.o CMakeFiles/aoc.dir/src/main.o CMakeFiles/aoc.dir/src/player.o -o aoc 
