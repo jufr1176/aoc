@@ -15,8 +15,8 @@ void Game::printStats(Character character) {
     cout << "Agility: " << character.getAgility() << endl;
     cout << "Luck: " << character.getLuck() << endl;
     cout << "Perception: " << character.getPerception() << endl;
-    cout << "Racism: " << "NULL" << endl;
-    cout << "Horniness: " << "NULL" << endl;
+    cout << "Racism: " << character.getRacism() << endl;
+    cout << "Horniness: " << character.getHorn()  << endl;
 
 }
 
@@ -43,6 +43,9 @@ void Game::loadCharacters() {
         string agility;
         string luck;
         string perception;
+	
+	string racism;
+	string horn;
 
         stringstream ss(line);
 
@@ -56,6 +59,8 @@ void Game::loadCharacters() {
         getline(ss, agility, ',');
         getline(ss, luck, ',');
         getline(ss, perception, ',');
+	getline(ss, racism, ',');
+	getline(ss, horn, ',');
 
         newCharacter.setName(name);
         newCharacter.setStrength(stoi(strength));
@@ -65,6 +70,8 @@ void Game::loadCharacters() {
         newCharacter.setIntelligence(stoi(intelligence));
         newCharacter.setLuck(stoi(luck));
         newCharacter.setPerception(stoi(perception));
+	newCharacter.setRacism(stoi(racism));
+	newCharacter.setHorn(stoi(horn));
 
         characters.push_back(newCharacter);
     }

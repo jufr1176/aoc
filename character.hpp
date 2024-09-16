@@ -20,6 +20,8 @@ class Character {
         int agility_;
         int luck_;
         int perception_;
+	int racism_;
+	int horn_;
 
     public:
 
@@ -33,6 +35,8 @@ class Character {
         void setAgility(int agility);
         void setLuck(int luck);
         void setPerception(int perception);
+	void setRacism(int racism);
+	void setHorn(int horn);
 
         //Getters
         string getName();
@@ -44,7 +48,8 @@ class Character {
         int getAgility();
         int getLuck();
         int getPerception();
-
+	int getRacism();
+	int getHorn();
 };
 
 #endif

@@ -36,6 +36,14 @@ void Character::setPerception(int perception) {
     perception_ = perception;
 }
 
+void Character::setRacism(int racism) {
+    racism_ = racism;
+}
+
+void Character::setHorn(int horn) {
+    horn_ = horn;
+}
+
 //Getters
 
 string Character::getName() {
@@ -73,4 +81,12 @@ int Character::getLuck() {
 
 int Character::getPerception() {
     return perception_;
+}
+
+int Character::getRacism() {
+    return racism_;
+}
+
+int Character::getHorn() {
+   return horn_;
 }
