@@ -166,6 +166,31 @@ void Game::loadLocations() {
     copyMatrix(Ruins_of_Aocia_Map, Ruins_of_Aocia.map);
     
     locations_.push_back(Ruins_of_Aocia);
+
+    Location The_Valley;
+    The_Valley.desc = "A small village between two mountain ranges. A land of peace and cooperation.";
+    The_Valley.name = "The Valley";
+    
+    int The_Valley_Map[10][10] = {
+        {1,1,1,1,1,1,1,1,1,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,0,0,1},
+        {1,0,0,0,0,0,0,1,0,1},
+        {1,1,1,1,3,3,1,1,1,1},
+    };
+
+    The_Valley.xStart = 6;
+    The_Valley.yStart = 9;
+
+    copyMatrix(The_Valley_Map, The_Valley.map);
+    
+    locations_.push_back(The_Valley);
+
 }
 
 //Game functions
