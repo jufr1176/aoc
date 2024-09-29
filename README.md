@@ -13,3 +13,5 @@ HOW TO PLAY:
 
 1. Clone this repository
 2. Run ./aoc.out
+
+# Bitzer Bitzer Bitzer Bitzer Bitzer
