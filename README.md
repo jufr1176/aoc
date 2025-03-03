@@ -4,8 +4,7 @@ HOW TO PLAY:
 
 *Windows*
 
-1. Install git: https://gitforwindows.org
-2. Clone the repository with this command: git clone https://github.com/jufr1176/aoc
+1. Install or clone this repo.
 3. Go into the folder: cd aoc
 4. Run the executable: ./aoc.exe
 
